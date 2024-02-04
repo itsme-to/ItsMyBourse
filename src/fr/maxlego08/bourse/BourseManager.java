@@ -157,43 +157,34 @@ public class BourseManager extends ZUtils implements Saveable {
 				Inventory inventory = optional.get();
 				List<BourseButton> buttons = inventory.getButtons(BourseButton.class);
 
-				int a = buttons.size();
+				int buttonsInCategory = buttons.size();
 
-				if (a == 0) {
+				if (buttonsInCategory == 0) {
 					return;
 				}
 
-				long c = buttons.stream().mapToLong(button -> this.getAmount(button.getItemStack().build(null))).sum();
+				long totalSale = buttons.stream().mapToLong(button -> this.getAmount(button.getItemStack().build(null))).sum();
 
-				if (c == 0) {
+				if (totalSale == 0) {
 					buttons.forEach(
 							button -> this.setPrice(button.getItemStack().build(null), button.getInitialPrice()));
 					return;
 				}
 
-				long M = 100 / a;
-
 				buttons.forEach(button -> {
 
-					long b = this.getAmount(button.getItemStack().build(null));
-					double P = button.getInitialPrice();
+					long buttonSale = this.getAmount(button.getItemStack().build(null));
+					double defaultSellPrice = button.getInitialPrice();
 
-					if (b <= Config.minItemChange) {
-						this.setPrice(button.getItemStack().build(null), P);
+					if (buttonSale <= Config.minItemChange) {
+						this.setPrice(button.getItemStack().build(null), defaultSellPrice);
 						return;
 					}
 
-					double m = percent(b, c);
+					double price = totalSale / buttonsInCategory / buttonSale * defaultSellPrice;
 
-					if (m == 0) {
-						this.setPrice(button.getItemStack().build(null), P);
-						return;
-					}
-
-					double p = M / m * P;
-
-					this.setPrice(button.getItemStack().build(null), p);
-
+					this.setPrice(button.getItemStack().build(null), price);
+					
 				});
 			});
 		});
