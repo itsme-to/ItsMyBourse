@@ -1,0 +1,27 @@
+items:
+  1:
+    name: "item1"
+    boost: 1.0
+    durability: 5
+    item:
+      material: STICK
+      name: "&6* &eSell Stick &6*"
+      lore:
+        - "&7Clique droit sur un coffre pour vendre"
+        - "&7son contenu."
+        - ""
+        - "&7Boost&8: &bx1"
+        - "&7Dura&8: &b%dura%&8/&a5"
+  2:
+    name: "item2"
+    boost: 2.0
+    durability: 10
+    item:
+      material: STICK
+      name: "&6* &eSell Stick &6*"
+      lore:
+        - "&7Clique droit sur un coffre pour vendre"
+        - "&7son contenu."
+        - ""
+        - "&7Boost&8: &bx2"
+        - "&7Dura&8: &b%dura%&8/&a10"

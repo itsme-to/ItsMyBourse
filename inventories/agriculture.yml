@@ -1,0 +1,77 @@
+name: "&7Agriculture"
+size: 54
+items:
+  slots:
+    type: NONE_SLOT
+    item:
+      material: STAINED_GLASS_PANE
+      data: 8
+      name: "&e"
+    slots:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 18
+      - 27
+      - 17
+      - 26
+      - 35
+      - 36
+      - 44
+      - 45
+      - 46
+      - 47
+      - 48
+      - 50
+      - 51
+      - 52
+      - 53
+  back:
+    type: NONE
+    closeInventory: true
+    slot: 49
+    item:
+      material: BARRIER
+      name: "&cRetour"
+  carrot:
+    type: BOURSE
+    slot: 20
+    initialPrice: 5     
+    buyPrice: 10   
+    item:
+      material: CARROT_ITEM 
+  potato:
+    type: BOURSE
+    slot: 21
+    initialPrice: 5     
+    buyPrice: 10     
+    item:
+      material: POTATO_ITEM
+  cactus:
+    type: BOURSE
+    slot: 22
+    initialPrice: 5     
+    buyPrice: 10  
+    item:
+      material: CACTUS             
+  melon:
+    type: BOURSE
+    slot: 23
+    initialPrice: 5     
+    buyPrice: 10   
+    item:
+      material: MELON       
+  pumkin:
+    type: BOURSE
+    slot: 24
+    initialPrice: 5     
+    buyPrice: 10   
+    item:
+      material: PUMPKIN          

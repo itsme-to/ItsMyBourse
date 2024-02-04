@@ -1,0 +1,77 @@
+name: "&7Minerais"
+size: 54
+items:
+  slots:
+    type: NONE_SLOT
+    item:
+      material: STAINED_GLASS_PANE
+      data: 8
+      name: "&e"
+    slots:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 18
+      - 27
+      - 17
+      - 26
+      - 35
+      - 36
+      - 44
+      - 45
+      - 46
+      - 47
+      - 48
+      - 50
+      - 51
+      - 52
+      - 53
+  back:
+    type: NONE
+    closeInventory: true
+    slot: 49
+    item:
+      material: BARRIER
+      name: "&cRetour"
+  iron:
+    type: BOURSE
+    slot: 20
+    initialPrice: 5     
+    buyPrice: 10   
+    item:
+      material: IRON_INGOT 
+  coal:
+    type: BOURSE
+    slot: 21
+    initialPrice: 5     
+    buyPrice: 10     
+    item:
+      material: COAL
+  gold:
+    type: BOURSE
+    slot: 22
+    initialPrice: 5     
+    buyPrice: 10  
+    item:
+      material: GOLD_INGOT             
+  diamond:
+    type: BOURSE
+    slot: 23
+    initialPrice: 5     
+    buyPrice: 10   
+    item:
+      material: DIAMOND       
+  emerald:
+    type: BOURSE
+    slot: 24
+    initialPrice: 5     
+    buyPrice: 10   
+    item:
+      material: EMERALD          
