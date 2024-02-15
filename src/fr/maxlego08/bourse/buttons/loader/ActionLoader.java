@@ -8,6 +8,7 @@ import org.bukkit.plugin.Plugin;
 
 import fr.maxlego08.bourse.BoursePlugin;
 import fr.maxlego08.menu.api.button.Button;
+import fr.maxlego08.menu.api.button.DefaultButtonValue;
 import fr.maxlego08.menu.api.loader.ButtonLoader;
 import fr.maxlego08.menu.button.ZButton;
 
@@ -43,7 +44,7 @@ public class ActionLoader implements ButtonLoader {
 	}
 
 	@Override
-	public Button load(YamlConfiguration configuration, String path) {
+	public Button load(YamlConfiguration configuration, String path, DefaultButtonValue var3) {
 		try {
 			int amount = configuration.getInt(path + "amount");
 			Constructor<? extends ZButton> constructor = this.classz.getConstructor(BoursePlugin.class, int.class);

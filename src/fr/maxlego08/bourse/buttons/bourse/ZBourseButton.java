@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
@@ -18,9 +19,9 @@ import fr.maxlego08.bourse.buttons.ShowItemButton;
 import fr.maxlego08.bourse.save.Config;
 import fr.maxlego08.bourse.zcore.enums.Message;
 import fr.maxlego08.bourse.zcore.utils.ZUtils;
+import fr.maxlego08.menu.MenuPlugin;
 import fr.maxlego08.menu.api.InventoryManager;
 import fr.maxlego08.menu.button.ZButton;
-import fr.maxlego08.menu.button.ZPlaceholderButton;
 import fr.maxlego08.menu.inventory.inventories.InventoryDefault;
 
 public class ZBourseButton extends ZButton implements BourseButton {
@@ -118,7 +119,8 @@ public class ZBourseButton extends ZButton implements BourseButton {
 
 		long ms = Config.taskChangePricemilliSeconds;
 
-		this.scheduleFix(this.plugin, ms, ms, (task, canRun) -> {
+		MenuPlugin menuPlugin = (MenuPlugin) Bukkit.getPluginManager().getPlugin("zMenu");
+		this.scheduleFix(menuPlugin, ms, ms, (task, canRun) -> {
 
 			if (!canRun) {
 				return;
@@ -139,9 +141,7 @@ public class ZBourseButton extends ZButton implements BourseButton {
 					itemStack.setItemMeta(itemMeta);
 
 				}
-
 			}
-
 		});
 
 	}
@@ -165,7 +165,7 @@ public class ZBourseButton extends ZButton implements BourseButton {
 
 		this.playerAmounts.put(player, 1);
 		this.plugin.setButton(player, this);
-		inventoryManager.openInventory(player, optional.get(), 1, inventory.getInventory());
+		inventoryManager.openInventory(player, optional.get(), 1, inventory.getMenuInventory());
 
 	}
 
@@ -181,7 +181,7 @@ public class ZBourseButton extends ZButton implements BourseButton {
 
 		this.playerAmounts.put(player, 1);
 		this.plugin.setButton(player, this);
-		inventoryManager.openInventory(player, optional.get(), 1, inventory.getInventory());
+		inventoryManager.openInventory(player, optional.get(), 1, inventory.getMenuInventory());
 
 	}
 
@@ -291,7 +291,7 @@ public class ZBourseButton extends ZButton implements BourseButton {
 		ItemStack itemStack = super.getItemStack().build(player);
 		itemStack.setAmount(amount);
 
-		give(player, papi(itemStack, player));
+		give(player, itemStack);
 
 		this.utils.message(player, Message.BUY_ITEM, "%amount%", String.valueOf(amount), "%item%",
 				getItemName(itemStack), "%price%", format(currentPrice));
@@ -302,7 +302,7 @@ public class ZBourseButton extends ZButton implements BourseButton {
 	public void setAmount(InventoryDefault inventoryDefault, Player player, int amount) {
 		this.playerAmounts.put(player, amount);
 
-		fr.maxlego08.menu.api.Inventory inventory = inventoryDefault.getInventory();
+		fr.maxlego08.menu.api.Inventory inventory = inventoryDefault.getMenuInventory();
 		inventory.getButtons(ShowItemButton.class).forEach(button -> {
 
 			int slot = button.getSlot();

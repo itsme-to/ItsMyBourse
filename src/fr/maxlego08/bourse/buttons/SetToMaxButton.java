@@ -8,10 +8,10 @@ import org.bukkit.plugin.Plugin;
 
 import fr.maxlego08.bourse.BoursePlugin;
 import fr.maxlego08.bourse.buttons.bourse.BourseButton;
-import fr.maxlego08.menu.button.ZPlaceholderButton;
+import fr.maxlego08.menu.button.ZButton;
 import fr.maxlego08.menu.inventory.inventories.InventoryDefault;
 
-public class SetToMaxButton extends ZPlaceholderButton {
+public class SetToMaxButton extends ZButton {
 
 	private final BoursePlugin plugin;
 

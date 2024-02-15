@@ -8,6 +8,7 @@ import org.bukkit.plugin.Plugin;
 import fr.maxlego08.bourse.BoursePlugin;
 import fr.maxlego08.bourse.buttons.ShowItemButton;
 import fr.maxlego08.menu.api.button.Button;
+import fr.maxlego08.menu.api.button.DefaultButtonValue;
 import fr.maxlego08.menu.api.loader.ButtonLoader;
 
 public class ShowLoader implements ButtonLoader {
@@ -38,7 +39,7 @@ public class ShowLoader implements ButtonLoader {
 	}
 
 	@Override
-	public Button load(YamlConfiguration configuration, String path) {
+	public Button load(YamlConfiguration configuration, String path, DefaultButtonValue var3) {
 		List<String> lore = configuration.getStringList(path + "lore");
 		return new ShowItemButton((BoursePlugin) this.plugin, lore);
 	}

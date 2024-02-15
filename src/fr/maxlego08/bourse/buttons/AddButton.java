@@ -6,10 +6,10 @@ import org.bukkit.inventory.ItemStack;
 
 import fr.maxlego08.bourse.BoursePlugin;
 import fr.maxlego08.bourse.buttons.bourse.BourseButton;
-import fr.maxlego08.menu.button.ZPlaceholderButton;
+import fr.maxlego08.menu.button.ZButton;
 import fr.maxlego08.menu.inventory.inventories.InventoryDefault;
 
-public class AddButton extends ZPlaceholderButton {
+public class AddButton extends ZButton {
 
 	private final BoursePlugin plugin;
 	private final int amount;
